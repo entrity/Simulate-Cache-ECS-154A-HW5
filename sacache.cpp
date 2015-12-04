@@ -50,7 +50,6 @@ Address format:
 | 9 bits | 4 bits | 3 bits |
 | 15-7   | 6-3    | 2-0    |
 */
-#define DEBUG
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -177,8 +176,8 @@ namespace CacheOps
 		p_line->counter = 0;
 		#ifdef DEBUG
 		cout << "\t" << (cacheHit ? "Hit" : "Miss");
-		#endif
 		cout << endl;
+		#endif
 		// handle cache miss
 		if (!cacheHit)
 		{
@@ -281,8 +280,10 @@ int main (int argc, char* args[]) {
 					CacheOps::write(address, value);
 				else // read
 					CacheOps::read(address);
+				#ifdef DEBUG
 				CacheOps::dump(4);
 				cin.get();
+				#endif
 			}
 			output.close();
 		}
