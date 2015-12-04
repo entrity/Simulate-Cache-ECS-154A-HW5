@@ -106,7 +106,7 @@ void dumpRAM ()
 		if (RAM[i].pageAddress)
 		{
 			if (i) output << ' ';
-			output << hex << setw(8) << RAM[i].pageAddress;
+			output << hex << RAM[i].pageAddress;
 		}
 	output << endl;
 }
